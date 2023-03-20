@@ -4,10 +4,13 @@
         private $longueur;
         private $largeur;
 
-        public function __construct($name , $heigth , $weight){
+        private $etage;
+
+        public function __construct($name , $heigth , $weight, $floor){
             $this->nom = $name;
             $this->longueur = $heigth;
             $this->largeur = $weight;
+            $this->etage = $floor;
         }
 
         
@@ -20,19 +23,25 @@
         public function getLargeur(){
             return $this->largeur;
         } 
+        public function getNbrEtage(){
+            return $this->etage;
+        }  
         public function setNom($name){
             $this->nom = $name;
         }       
-         public function setLongueur($taille){
-            $this->nom = $taille;
+         public function setLongueur($longueur){
+            $this->longueur = $longueur;
         }        
-        public function setLargeur($poid){
-            $this->nom = $poid;
-        }        
+        public function setLargeur($largeur){
+            $this->largeur = $largeur;
+        }     
+        public function setNbrEtage($etage){
+            $this->etage = $etage;
+        }    
 
         public function surfaceMaison(){
-            $resultat = $this->largeur * $this->longueur;
-            echo "<p>la surface de nomMaison est égale à : x m2 $resultat</p>";
+            $resultat = ($this->largeur * $this->longueur)*$this->etage;
+            echo "<p>la surface de " . $this->nom . " est égale à : x m2 $resultat</p>";
 
         }
 
